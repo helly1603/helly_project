@@ -1,0 +1,55 @@
+﻿{% extends 'chairmanapp\index.html' %}
+{% load static %}
+{% block css %}
+        <link rel="stylesheet" href="{% static 'chairmanapp\assets\css\blog.css' %}">
+{% endblock %}
+{% block content %}  
+  <section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2> <b>EVENT LIST</b> <small class="text-muted">Welcome to Digital Society</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Oreo</a></li>
+                                                            <li class="breadcrumb-item">Event</li>
+                                                                                        <li class="breadcrumb-item active">Event List</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                <div class="blog-page">
+
+    <div class="raw">
+        <div class = "col-lg-8 col-md-12 left-box">
+            {% for item in event %}
+            <div class="card single_post">
+                <div class="body">
+                    <h3 class="m-t-0 m-b-5"><a href="{% url 'view-event' %}">{{item.title}}</a></h3>
+                    <ul class="meta">
+                        <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Posted By: {{item.user_id.role}}</a></li>
+                        <li><a href="#"><i class="zmdi zmdi-alarm col-blue"></i>Updated at : {{item.whenpublishedevent}}</a></li>
+                    </ul>
+                </div>                    
+               <div class="body">
+                    
+                    <p>{{item.description}}</p>
+                    <a href="detail.html" title="read more" class="btn btn-round btn-info">Read More</a>                        
+                </div> 
+                
+            </div>
+            {% endfor %}
+        
+        
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+        {%  endblock %}
+               

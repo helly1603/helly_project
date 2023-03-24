@@ -1,0 +1,50 @@
+
+{% extends 'chairmanapp\index.html' %}
+{% block content %}
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>All Society - members <small class="text-muted">Welcome to Digital Society</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                                                    <button class="btn btn-white btn-icon btn-round d-none d-md-inline-block float-right m-l-10" type="button">
+                                <i class="zmdi zmdi-edit"></i>
+                            </button>
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Digital Society</a></li>
+                                                            <li class="breadcrumb-item">All Society - members</li>
+                                                                                        <li class="breadcrumb-item active">Profile</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+    {% for s in sall %}
+    <div class="row clearfix profile-page">
+        <div class="col-lg-4 col-md-12">
+            <div class="card profile-header">
+                <div class="body text-center">
+                    <div class="profile-image"> <img src="{{s.pic.url}}" alt=""> </div>
+                    <div>
+                        <h4 class="m-b-0"><strong>{{s.firstname}}</h4>
+                        <p class="text-muted">{{s.user_id.email}}</p>
+                        <p>795 Folsom Ave, Suite 600<br> San Francisco, CADGE 94107</p>
+                        <a href="{% url 'societyspecification-profile' s.id %}" ></a>
+                    </div>
+                </div>
+                    
+
+            </div>
+        </div>
+    
+    </div>
+    {% endfor %}              
+
+ </div>
+    </section>
+{% endblock %}
+       

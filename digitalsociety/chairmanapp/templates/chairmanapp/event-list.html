@@ -1,0 +1,71 @@
+﻿{% extends 'chairmanapp\index.html' %}
+{% load static %}
+{% block css %}
+        <link rel="stylesheet" href="{% static 'chairmanapp\assets\css\blog.css' %}">
+{% endblock %}
+{% block content %}  
+  <section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2> <b>EVENT LIST</b> <small class="text-muted">Welcome to Digital Society</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Digital Society</a></li>
+                                                            <li class="breadcrumb-item">Event</li>
+                                                                                        <li class="breadcrumb-item active">Notice List</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                <div class="blog-page">
+   
+            {% for item in eall %}        
+            <div class="card single_post">
+                <div class="body">
+                    <h3 class="m-t-0 m-b-5"><a href="{% url 'view-event-details' item.id %}">{{item.title}}</a></h3>
+                    <ul class="meta">
+                        <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Posted By: {{item.user_id.role}}</a></li>
+                        <li><a href="#"><i class="zmdi zmdi-alarm col-blue"></i>updated at : {{item.whenpublishedevent}}</a></li>
+                    </ul>
+                </div>                    
+                <!--<div class="body">
+                    <div class="img-post m-b-15">
+                        <img src="..\assets\images\blog\blog-page-2.jpg" alt="Awesome Image">
+                        <div class="social_share">                            
+                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-facebook"></i></button>
+                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-twitter"></i></button>
+                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-instagram"></i></button>
+                        </div>
+                    </div>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
+                    <a href="detail.html" title="read more" class="btn btn-round btn-info">Read More</a>                        
+                </div> -->
+                
+            </div>
+            {% endfor %}
+                   
+        </div>
+       
+            </div>
+          
+                 
+                            
+                </div>
+            </div>                
+          
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+        {%  endblock %}
+               
